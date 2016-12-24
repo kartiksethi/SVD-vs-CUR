@@ -16,3 +16,5 @@ This project highlights a detailed comparison between the two matrix factorizati
 
 #### For Experimental Comparison and Related graphs between CUR and SVD
 * Execute the python file 'svdcurcomparison.py'.
+
+### Please read the file [Design_Document.pdf](https://drive.google.com/open?id=0BzNf9u6dqAlhb295U1YtUEQxN2c) for complete understanding of the project.  
