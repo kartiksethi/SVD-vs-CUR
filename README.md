@@ -1,4 +1,4 @@
-# SVD-vs-CUR
+# SVD vs CUR
 
 This project highlights a detailed comparison between the two matrix factorization methods namely SVD (Singular Value Decomposition) and CUR Matrix Approximation, developed in partial fulfilment for the Information Retrieval Course offered at my University.
 
