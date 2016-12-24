@@ -1,0 +1,62 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module svd</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>svd</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vinaydatta/IRassgn2/Documentation/svd.py">/home/vinaydatta/IRassgn2/Documentation/svd.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.linalg.html">numpy.linalg</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="scipy.html">scipy</a><br>
+<a href="scipy.sparse.html">scipy.sparse</a><br>
+</td><td width="25%" valign=top><a href="timeit.html">timeit</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-SVD"><strong>SVD</strong></a>(A, dim)</dt></dl>
+ <dl><dt><a name="-power_iteration"><strong>power_iteration</strong></a>(sq_matrix, k)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>A</strong> = array([[ 0.,  0.,  0., ...,  0.,  0.,  0.],
+    ...0.],
+       [ 0.,  0.,  0., ...,  0.,  0.,  0.]])<br>
+<strong>H</strong> = array([[  3.29141473e-14,   8.26155423e-14,  -1....747498e-14,   1.22949355e-15,   4.30468405e-14]])<br>
+<strong>U</strong> = array([[  2.25279588e-03,   1.29784167e-03,   2....362848e-03,   4.28373978e-03,   8.72320609e-04]])<br>
+<strong>V</strong> = array([[  2.74322637e-03,   1.65743422e-03,  -3....266202e-02,  -1.39578473e-03,   3.50910607e-04]])<br>
+<strong>df</strong> =        0      1      2      3      4      5     ...9.00  
+24937  99.00  
+
+[24938 rows x 101 columns]<br>
+<strong>inp</strong> = 98<br>
+<strong>mask</strong> = 5000<br>
+<strong>num_eigs_vector</strong> = 98<br>
+<strong>reconstructionError</strong> = 2.0965731590925599e-10<br>
+<strong>sigma</strong> = array([[ 815.55076168,    0.        ,    0.     ...        ,
+           0.        ,    1.11705923]])<br>
+<strong>start</strong> = 1479718561.632463<br>
+<strong>stop</strong> = 1479718576.719141</td></tr></table>
+</body></html>

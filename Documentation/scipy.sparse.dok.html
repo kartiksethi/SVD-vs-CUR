@@ -1,0 +1,624 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module scipy.sparse.dok</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="scipy.html"><font color="#ffffff">scipy</font></a>.<a href="scipy.sparse.html"><font color="#ffffff">sparse</font></a>.dok</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.7/dist-packages/scipy/sparse/dok.py">/usr/local/lib/python2.7/dist-packages/scipy/sparse/dok.py</a></font></td></tr></table>
+    <p><tt>Dictionary&nbsp;Of&nbsp;Keys&nbsp;based&nbsp;matrix</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="functools.html">functools</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="operator.html">operator</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#dict">__builtin__.dict</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="scipy.sparse.dok.html#dok_matrix">dok_matrix</a>(<a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>, <a href="scipy.sparse.sputils.html#IndexMixin">scipy.sparse.sputils.IndexMixin</a>, <a href="__builtin__.html#dict">__builtin__.dict</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="scipy.sparse.dok.html#dok_matrix">dok_matrix</a>(<a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>, <a href="scipy.sparse.sputils.html#IndexMixin">scipy.sparse.sputils.IndexMixin</a>, <a href="__builtin__.html#dict">__builtin__.dict</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="scipy.sparse.sputils.html#IndexMixin">scipy.sparse.sputils.IndexMixin</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="scipy.sparse.dok.html#dok_matrix">dok_matrix</a>(<a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>, <a href="scipy.sparse.sputils.html#IndexMixin">scipy.sparse.sputils.IndexMixin</a>, <a href="__builtin__.html#dict">__builtin__.dict</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="dok_matrix">class <strong>dok_matrix</strong></a>(<a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>, <a href="scipy.sparse.sputils.html#IndexMixin">scipy.sparse.sputils.IndexMixin</a>, <a href="__builtin__.html#dict">__builtin__.dict</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Dictionary&nbsp;Of&nbsp;Keys&nbsp;based&nbsp;sparse&nbsp;matrix.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;an&nbsp;efficient&nbsp;structure&nbsp;for&nbsp;constructing&nbsp;sparse<br>
+matrices&nbsp;incrementally.<br>
+&nbsp;<br>
+This&nbsp;can&nbsp;be&nbsp;instantiated&nbsp;in&nbsp;several&nbsp;ways:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dok_matrix">dok_matrix</a>(D)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;a&nbsp;dense&nbsp;matrix,&nbsp;D<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dok_matrix">dok_matrix</a>(S)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;a&nbsp;sparse&nbsp;matrix,&nbsp;S<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dok_matrix">dok_matrix</a>((M,N),&nbsp;[dtype])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;create&nbsp;the&nbsp;matrix&nbsp;with&nbsp;initial&nbsp;shape&nbsp;(M,N)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dtype&nbsp;is&nbsp;optional,&nbsp;defaulting&nbsp;to&nbsp;dtype='d'<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+dtype&nbsp;:&nbsp;dtype<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Data&nbsp;type&nbsp;of&nbsp;the&nbsp;matrix<br>
+shape&nbsp;:&nbsp;2-tuple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Shape&nbsp;of&nbsp;the&nbsp;matrix<br>
+ndim&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Number&nbsp;of&nbsp;dimensions&nbsp;(this&nbsp;is&nbsp;always&nbsp;2)<br>
+nnz<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Number&nbsp;of&nbsp;nonzero&nbsp;elements<br>
+&nbsp;<br>
+Notes<br>
+-----<br>
+&nbsp;<br>
+Sparse&nbsp;matrices&nbsp;can&nbsp;be&nbsp;used&nbsp;in&nbsp;arithmetic&nbsp;operations:&nbsp;they&nbsp;support<br>
+addition,&nbsp;subtraction,&nbsp;multiplication,&nbsp;division,&nbsp;and&nbsp;matrix&nbsp;power.<br>
+&nbsp;<br>
+Allows&nbsp;for&nbsp;efficient&nbsp;O(1)&nbsp;access&nbsp;of&nbsp;individual&nbsp;elements.<br>
+Duplicates&nbsp;are&nbsp;not&nbsp;allowed.<br>
+Can&nbsp;be&nbsp;efficiently&nbsp;converted&nbsp;to&nbsp;a&nbsp;coo_matrix&nbsp;once&nbsp;constructed.<br>
+&nbsp;<br>
+Examples<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;scipy.sparse&nbsp;import&nbsp;<a href="#dok_matrix">dok_matrix</a><br>
+&gt;&gt;&gt;&nbsp;S&nbsp;=&nbsp;<a href="#dok_matrix">dok_matrix</a>((5,&nbsp;5),&nbsp;dtype=np.float32)<br>
+&gt;&gt;&gt;&nbsp;for&nbsp;i&nbsp;in&nbsp;range(5):<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;j&nbsp;in&nbsp;range(5):<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S[i,&nbsp;j]&nbsp;=&nbsp;i&nbsp;+&nbsp;j&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Update&nbsp;element<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="scipy.sparse.dok.html#dok_matrix">dok_matrix</a></dd>
+<dd><a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a></dd>
+<dd><a href="scipy.sparse.sputils.html#IndexMixin">scipy.sparse.sputils.IndexMixin</a></dd>
+<dd><a href="__builtin__.html#dict">__builtin__.dict</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="dok_matrix-__add__"><strong>__add__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__getitem__"><strong>__getitem__</strong></a>(self, index)</dt><dd><tt>If&nbsp;key=(i,j)&nbsp;is&nbsp;a&nbsp;pair&nbsp;of&nbsp;integers,&nbsp;return&nbsp;the&nbsp;corresponding<br>
+element.&nbsp;&nbsp;If&nbsp;either&nbsp;i&nbsp;or&nbsp;j&nbsp;is&nbsp;a&nbsp;slice&nbsp;or&nbsp;sequence,&nbsp;return&nbsp;a&nbsp;new&nbsp;sparse<br>
+matrix&nbsp;with&nbsp;just&nbsp;these&nbsp;elements.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-__imul__"><strong>__imul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__init__"><strong>__init__</strong></a>(self, arg1, shape<font color="#909090">=None</font>, dtype<font color="#909090">=None</font>, copy<font color="#909090">=False</font>)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__itruediv__"><strong>__itruediv__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__len__"><strong>__len__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__neg__"><strong>__neg__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__radd__"><strong>__radd__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__setitem__"><strong>__setitem__</strong></a>(self, index, x)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__truediv__"><strong>__truediv__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-conjtransp"><strong>conjtransp</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;conjugate&nbsp;transpose</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-copy"><strong>copy</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;copy&nbsp;of&nbsp;this&nbsp;matrix.<br>
+&nbsp;<br>
+No&nbsp;data/indices&nbsp;will&nbsp;be&nbsp;shared&nbsp;between&nbsp;the&nbsp;returned&nbsp;value&nbsp;and&nbsp;current<br>
+matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-count_nonzero"><strong>count_nonzero</strong></a>(self)</dt><dd><tt>Number&nbsp;of&nbsp;non-zero&nbsp;entries,&nbsp;equivalent&nbsp;to<br>
+&nbsp;<br>
+np.<a href="#dok_matrix-count_nonzero">count_nonzero</a>(a.<a href="#dok_matrix-toarray">toarray</a>())<br>
+&nbsp;<br>
+Unlike&nbsp;<a href="#dok_matrix-getnnz">getnnz</a>()&nbsp;and&nbsp;the&nbsp;nnz&nbsp;property,&nbsp;which&nbsp;return&nbsp;the&nbsp;number&nbsp;of&nbsp;stored<br>
+entries&nbsp;(the&nbsp;length&nbsp;of&nbsp;the&nbsp;data&nbsp;attribute),&nbsp;this&nbsp;method&nbsp;counts&nbsp;the<br>
+actual&nbsp;number&nbsp;of&nbsp;non-zero&nbsp;entries&nbsp;in&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-get"><strong>get</strong></a>(self, key, default<font color="#909090">=0.0</font>)</dt><dd><tt>This&nbsp;overrides&nbsp;the&nbsp;<a href="__builtin__.html#dict">dict</a>.get&nbsp;method,&nbsp;providing&nbsp;type&nbsp;checking<br>
+but&nbsp;otherwise&nbsp;equivalent&nbsp;functionality.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-getcol"><strong>getcol</strong></a>(self, j)</dt><dd><tt>Returns&nbsp;a&nbsp;copy&nbsp;of&nbsp;column&nbsp;j&nbsp;of&nbsp;the&nbsp;matrix&nbsp;as&nbsp;a&nbsp;(m&nbsp;x&nbsp;1)<br>
+DOK&nbsp;matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-getnnz"><strong>getnnz</strong></a>(self, axis<font color="#909090">=None</font>)</dt><dd><tt>Number&nbsp;of&nbsp;stored&nbsp;values,&nbsp;including&nbsp;explicit&nbsp;zeros.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+axis&nbsp;:&nbsp;None,&nbsp;0,&nbsp;or&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Select&nbsp;between&nbsp;the&nbsp;number&nbsp;of&nbsp;values&nbsp;across&nbsp;the&nbsp;whole&nbsp;matrix,&nbsp;in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;each&nbsp;column,&nbsp;or&nbsp;in&nbsp;each&nbsp;row.<br>
+&nbsp;<br>
+See&nbsp;also<br>
+--------<br>
+count_nonzero&nbsp;:&nbsp;Number&nbsp;of&nbsp;non-zero&nbsp;entries</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-getrow"><strong>getrow</strong></a>(self, i)</dt><dd><tt>Returns&nbsp;a&nbsp;copy&nbsp;of&nbsp;row&nbsp;i&nbsp;of&nbsp;the&nbsp;matrix&nbsp;as&nbsp;a&nbsp;(1&nbsp;x&nbsp;n)<br>
+DOK&nbsp;matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-resize"><strong>resize</strong></a>(self, shape)</dt><dd><tt>Resize&nbsp;the&nbsp;matrix&nbsp;in-place&nbsp;to&nbsp;dimensions&nbsp;given&nbsp;by&nbsp;'shape'.<br>
+&nbsp;<br>
+Any&nbsp;non-zero&nbsp;elements&nbsp;that&nbsp;lie&nbsp;outside&nbsp;the&nbsp;new&nbsp;shape&nbsp;are&nbsp;removed.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-tocoo"><strong>tocoo</strong></a>(self, copy<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;this&nbsp;matrix&nbsp;to&nbsp;COOrdinate&nbsp;format.<br>
+&nbsp;<br>
+With&nbsp;copy=False,&nbsp;the&nbsp;data/indices&nbsp;may&nbsp;be&nbsp;shared&nbsp;between&nbsp;this&nbsp;matrix&nbsp;and<br>
+the&nbsp;resultant&nbsp;coo_matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-tocsc"><strong>tocsc</strong></a>(self, copy<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;this&nbsp;matrix&nbsp;to&nbsp;Compressed&nbsp;Sparse&nbsp;Column&nbsp;format.<br>
+&nbsp;<br>
+With&nbsp;copy=False,&nbsp;the&nbsp;data/indices&nbsp;may&nbsp;be&nbsp;shared&nbsp;between&nbsp;this&nbsp;matrix&nbsp;and<br>
+the&nbsp;resultant&nbsp;csc_matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-todok"><strong>todok</strong></a>(self, copy<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;this&nbsp;matrix&nbsp;to&nbsp;Dictionary&nbsp;Of&nbsp;Keys&nbsp;format.<br>
+&nbsp;<br>
+With&nbsp;copy=False,&nbsp;the&nbsp;data/indices&nbsp;may&nbsp;be&nbsp;shared&nbsp;between&nbsp;this&nbsp;matrix&nbsp;and<br>
+the&nbsp;resultant&nbsp;<a href="#dok_matrix">dok_matrix</a>.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-transpose"><strong>transpose</strong></a>(self, axes<font color="#909090">=None</font>, copy<font color="#909090">=False</font>)</dt><dd><tt>Reverses&nbsp;the&nbsp;dimensions&nbsp;of&nbsp;the&nbsp;sparse&nbsp;matrix.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+axes&nbsp;:&nbsp;None,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;argument&nbsp;is&nbsp;in&nbsp;the&nbsp;signature&nbsp;*solely*&nbsp;for&nbsp;NumPy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;compatibility&nbsp;reasons.&nbsp;Do&nbsp;not&nbsp;pass&nbsp;in&nbsp;anything&nbsp;except<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;default&nbsp;value.<br>
+copy&nbsp;:&nbsp;bool,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;whether&nbsp;or&nbsp;not&nbsp;attributes&nbsp;of&nbsp;`self`&nbsp;should&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;copied&nbsp;whenever&nbsp;possible.&nbsp;The&nbsp;degree&nbsp;to&nbsp;which&nbsp;attributes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;copied&nbsp;varies&nbsp;depending&nbsp;on&nbsp;the&nbsp;type&nbsp;of&nbsp;sparse&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;being&nbsp;used.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+p&nbsp;:&nbsp;`self`&nbsp;with&nbsp;the&nbsp;dimensions&nbsp;reversed.<br>
+&nbsp;<br>
+See&nbsp;Also<br>
+--------<br>
+np.matrix.transpose&nbsp;:&nbsp;NumPy's&nbsp;implementation&nbsp;of&nbsp;'transpose'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;matrices</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>format</strong> = 'dok'</dl>
+
+<hr>
+Methods inherited from <a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>:<br>
+<dl><dt><a name="dok_matrix-__abs__"><strong>__abs__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__bool__"><strong>__bool__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__div__"><strong>__div__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__ge__"><strong>__ge__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__getattr__"><strong>__getattr__</strong></a>(self, attr)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__gt__"><strong>__gt__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__iadd__"><strong>__iadd__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__idiv__"><strong>__idiv__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__isub__"><strong>__isub__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__le__"><strong>__le__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__lt__"><strong>__lt__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__matmul__"><strong>__matmul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__mul__"><strong>__mul__</strong></a>(self, other)</dt><dd><tt>interpret&nbsp;other&nbsp;and&nbsp;call&nbsp;one&nbsp;of&nbsp;the&nbsp;following<br>
+&nbsp;<br>
+self._mul_scalar()<br>
+self._mul_vector()<br>
+self._mul_multivector()<br>
+self._mul_sparse_matrix()</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__nonzero__"><strong>__nonzero__</strong></a> = __bool__(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__numpy_ufunc__"><strong>__numpy_ufunc__</strong></a>(self, func, method, pos, inputs, **kwargs)</dt><dd><tt>Method&nbsp;for&nbsp;compatibility&nbsp;with&nbsp;NumPy's&nbsp;ufuncs&nbsp;and&nbsp;dot<br>
+functions.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-__pow__"><strong>__pow__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__rdiv__"><strong>__rdiv__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__rmatmul__"><strong>__rmatmul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__rmul__"><strong>__rmul__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__rsub__"><strong>__rsub__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__rtruediv__"><strong>__rtruediv__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-__sub__"><strong>__sub__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-asformat"><strong>asformat</strong></a>(self, format)</dt><dd><tt>Return&nbsp;this&nbsp;matrix&nbsp;in&nbsp;a&nbsp;given&nbsp;sparse&nbsp;format<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+format&nbsp;:&nbsp;{string,&nbsp;None}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;desired&nbsp;sparse&nbsp;matrix&nbsp;format<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;None&nbsp;for&nbsp;no&nbsp;format&nbsp;conversion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;"csr"&nbsp;for&nbsp;csr_matrix&nbsp;format<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;"csc"&nbsp;for&nbsp;csc_matrix&nbsp;format<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;"lil"&nbsp;for&nbsp;lil_matrix&nbsp;format<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;"dok"&nbsp;for&nbsp;<a href="#dok_matrix">dok_matrix</a>&nbsp;format&nbsp;and&nbsp;so&nbsp;on</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-asfptype"><strong>asfptype</strong></a>(self)</dt><dd><tt>Upcast&nbsp;matrix&nbsp;to&nbsp;a&nbsp;floating&nbsp;point&nbsp;format&nbsp;(if&nbsp;necessary)</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-astype"><strong>astype</strong></a>(self, t)</dt></dl>
+
+<dl><dt><a name="dok_matrix-conj"><strong>conj</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-conjugate"><strong>conjugate</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-diagonal"><strong>diagonal</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;main&nbsp;diagonal&nbsp;of&nbsp;the&nbsp;matrix</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-dot"><strong>dot</strong></a>(self, other)</dt><dd><tt>Ordinary&nbsp;dot&nbsp;product<br>
+&nbsp;<br>
+Examples<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;import&nbsp;numpy&nbsp;as&nbsp;np<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;scipy.sparse&nbsp;import&nbsp;csr_matrix<br>
+&gt;&gt;&gt;&nbsp;A&nbsp;=&nbsp;csr_matrix([[1,&nbsp;2,&nbsp;0],&nbsp;[0,&nbsp;0,&nbsp;3],&nbsp;[4,&nbsp;0,&nbsp;5]])<br>
+&gt;&gt;&gt;&nbsp;v&nbsp;=&nbsp;np.array([1,&nbsp;0,&nbsp;-1])<br>
+&gt;&gt;&gt;&nbsp;A.<a href="#dok_matrix-dot">dot</a>(v)<br>
+array([&nbsp;1,&nbsp;-3,&nbsp;-1],&nbsp;dtype=int64)</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-getH"><strong>getH</strong></a>(self)</dt><dd><tt>#&nbsp;Renamed&nbsp;conjtranspose()&nbsp;-&gt;&nbsp;<a href="#dok_matrix-getH">getH</a>()&nbsp;for&nbsp;compatibility&nbsp;with&nbsp;dense&nbsp;matrices</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-get_shape"><strong>get_shape</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-getformat"><strong>getformat</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-getmaxprint"><strong>getmaxprint</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="dok_matrix-maximum"><strong>maximum</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-mean"><strong>mean</strong></a>(self, axis<font color="#909090">=None</font>, dtype<font color="#909090">=None</font>, out<font color="#909090">=None</font>)</dt><dd><tt>Compute&nbsp;the&nbsp;arithmetic&nbsp;mean&nbsp;along&nbsp;the&nbsp;specified&nbsp;axis.<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;average&nbsp;of&nbsp;the&nbsp;matrix&nbsp;elements.&nbsp;The&nbsp;average&nbsp;is&nbsp;taken<br>
+over&nbsp;all&nbsp;elements&nbsp;in&nbsp;the&nbsp;matrix&nbsp;by&nbsp;default,&nbsp;otherwise&nbsp;over&nbsp;the<br>
+specified&nbsp;axis.&nbsp;`float64`&nbsp;intermediate&nbsp;and&nbsp;return&nbsp;values&nbsp;are&nbsp;used<br>
+for&nbsp;integer&nbsp;inputs.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+axis&nbsp;:&nbsp;{-2,&nbsp;-1,&nbsp;0,&nbsp;1,&nbsp;None}&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Axis&nbsp;along&nbsp;which&nbsp;the&nbsp;mean&nbsp;is&nbsp;computed.&nbsp;The&nbsp;default&nbsp;is&nbsp;to&nbsp;compute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;mean&nbsp;of&nbsp;all&nbsp;elements&nbsp;in&nbsp;the&nbsp;matrix&nbsp;(i.e.&nbsp;`axis`&nbsp;=&nbsp;`None`).<br>
+dtype&nbsp;:&nbsp;data-type,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Type&nbsp;to&nbsp;use&nbsp;in&nbsp;computing&nbsp;the&nbsp;mean.&nbsp;For&nbsp;integer&nbsp;inputs,&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;`float64`;&nbsp;for&nbsp;floating&nbsp;point&nbsp;inputs,&nbsp;it&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;dtype.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;versionadded:&nbsp;0.18.0<br>
+&nbsp;<br>
+out&nbsp;:&nbsp;np.matrix,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alternative&nbsp;output&nbsp;matrix&nbsp;in&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;result.&nbsp;It&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;&nbsp;have&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;the&nbsp;expected&nbsp;output,&nbsp;but&nbsp;the&nbsp;type&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;values&nbsp;will&nbsp;be&nbsp;cast&nbsp;if&nbsp;necessary.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;versionadded:&nbsp;0.18.0<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+m&nbsp;:&nbsp;np.matrix<br>
+&nbsp;<br>
+See&nbsp;Also<br>
+--------<br>
+np.matrix.mean&nbsp;:&nbsp;NumPy's&nbsp;implementation&nbsp;of&nbsp;'mean'&nbsp;for&nbsp;matrices</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-minimum"><strong>minimum</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="dok_matrix-multiply"><strong>multiply</strong></a>(self, other)</dt><dd><tt>Point-wise&nbsp;multiplication&nbsp;by&nbsp;another&nbsp;matrix</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-nonzero"><strong>nonzero</strong></a>(self)</dt><dd><tt>nonzero&nbsp;indices<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;arrays&nbsp;(row,col)&nbsp;containing&nbsp;the&nbsp;indices<br>
+of&nbsp;the&nbsp;non-zero&nbsp;elements&nbsp;of&nbsp;the&nbsp;matrix.<br>
+&nbsp;<br>
+Examples<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;scipy.sparse&nbsp;import&nbsp;csr_matrix<br>
+&gt;&gt;&gt;&nbsp;A&nbsp;=&nbsp;csr_matrix([[1,2,0],[0,0,3],[4,0,5]])<br>
+&gt;&gt;&gt;&nbsp;A.<a href="#dok_matrix-nonzero">nonzero</a>()<br>
+(array([0,&nbsp;0,&nbsp;1,&nbsp;2,&nbsp;2]),&nbsp;array([0,&nbsp;1,&nbsp;2,&nbsp;0,&nbsp;2]))</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-power"><strong>power</strong></a>(self, n, dtype<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="dok_matrix-reshape"><strong>reshape</strong></a>(self, shape, order<font color="#909090">='C'</font>)</dt><dd><tt>Gives&nbsp;a&nbsp;new&nbsp;shape&nbsp;to&nbsp;a&nbsp;sparse&nbsp;matrix&nbsp;without&nbsp;changing&nbsp;its&nbsp;data.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+shape&nbsp;:&nbsp;length-2&nbsp;tuple&nbsp;of&nbsp;ints<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;new&nbsp;shape&nbsp;should&nbsp;be&nbsp;compatible&nbsp;with&nbsp;the&nbsp;original&nbsp;shape.<br>
+order&nbsp;:&nbsp;'C',&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;argument&nbsp;is&nbsp;in&nbsp;the&nbsp;signature&nbsp;*solely*&nbsp;for&nbsp;NumPy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;compatibility&nbsp;reasons.&nbsp;Do&nbsp;not&nbsp;pass&nbsp;in&nbsp;anything&nbsp;except<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;the&nbsp;default&nbsp;value,&nbsp;as&nbsp;this&nbsp;argument&nbsp;is&nbsp;not&nbsp;used.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+reshaped_matrix&nbsp;:&nbsp;`self`&nbsp;with&nbsp;the&nbsp;new&nbsp;dimensions&nbsp;of&nbsp;`shape`<br>
+&nbsp;<br>
+See&nbsp;Also<br>
+--------<br>
+np.matrix.reshape&nbsp;:&nbsp;NumPy's&nbsp;implementation&nbsp;of&nbsp;'reshape'&nbsp;for&nbsp;matrices</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-set_shape"><strong>set_shape</strong></a>(self, shape)</dt></dl>
+
+<dl><dt><a name="dok_matrix-setdiag"><strong>setdiag</strong></a>(self, values, k<font color="#909090">=0</font>)</dt><dd><tt>Set&nbsp;diagonal&nbsp;or&nbsp;off-diagonal&nbsp;elements&nbsp;of&nbsp;the&nbsp;array.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+values&nbsp;:&nbsp;array_like<br>
+&nbsp;&nbsp;&nbsp;&nbsp;New&nbsp;values&nbsp;of&nbsp;the&nbsp;diagonal&nbsp;elements.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Values&nbsp;may&nbsp;have&nbsp;any&nbsp;length.&nbsp;&nbsp;If&nbsp;the&nbsp;diagonal&nbsp;is&nbsp;longer&nbsp;than&nbsp;values,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;the&nbsp;remaining&nbsp;diagonal&nbsp;entries&nbsp;will&nbsp;not&nbsp;be&nbsp;set.&nbsp;&nbsp;If&nbsp;values&nbsp;if<br>
+&nbsp;&nbsp;&nbsp;&nbsp;longer&nbsp;than&nbsp;the&nbsp;diagonal,&nbsp;then&nbsp;the&nbsp;remaining&nbsp;values&nbsp;are&nbsp;ignored.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;a&nbsp;scalar&nbsp;value&nbsp;is&nbsp;given,&nbsp;all&nbsp;of&nbsp;the&nbsp;diagonal&nbsp;is&nbsp;set&nbsp;to&nbsp;it.<br>
+&nbsp;<br>
+k&nbsp;:&nbsp;int,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Which&nbsp;off-diagonal&nbsp;to&nbsp;set,&nbsp;corresponding&nbsp;to&nbsp;elements&nbsp;a[i,i+k].<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default:&nbsp;0&nbsp;(the&nbsp;main&nbsp;diagonal).</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-sum"><strong>sum</strong></a>(self, axis<font color="#909090">=None</font>, dtype<font color="#909090">=None</font>, out<font color="#909090">=None</font>)</dt><dd><tt>Sum&nbsp;the&nbsp;matrix&nbsp;elements&nbsp;over&nbsp;a&nbsp;given&nbsp;axis.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+axis&nbsp;:&nbsp;{-2,&nbsp;-1,&nbsp;0,&nbsp;1,&nbsp;None}&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Axis&nbsp;along&nbsp;which&nbsp;the&nbsp;sum&nbsp;is&nbsp;computed.&nbsp;The&nbsp;default&nbsp;is&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;compute&nbsp;the&nbsp;sum&nbsp;of&nbsp;all&nbsp;the&nbsp;matrix&nbsp;elements,&nbsp;returning&nbsp;a&nbsp;scalar<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(i.e.&nbsp;`axis`&nbsp;=&nbsp;`None`).<br>
+dtype&nbsp;:&nbsp;dtype,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;type&nbsp;of&nbsp;the&nbsp;returned&nbsp;matrix&nbsp;and&nbsp;of&nbsp;the&nbsp;accumulator&nbsp;in&nbsp;which<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;elements&nbsp;are&nbsp;summed.&nbsp;&nbsp;The&nbsp;dtype&nbsp;of&nbsp;`a`&nbsp;is&nbsp;used&nbsp;by&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;unless&nbsp;`a`&nbsp;has&nbsp;an&nbsp;integer&nbsp;dtype&nbsp;of&nbsp;less&nbsp;precision&nbsp;than&nbsp;the&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;platform&nbsp;integer.&nbsp;&nbsp;In&nbsp;that&nbsp;case,&nbsp;if&nbsp;`a`&nbsp;is&nbsp;signed&nbsp;then&nbsp;the&nbsp;platform<br>
+&nbsp;&nbsp;&nbsp;&nbsp;integer&nbsp;is&nbsp;used&nbsp;while&nbsp;if&nbsp;`a`&nbsp;is&nbsp;unsigned&nbsp;then&nbsp;an&nbsp;unsigned&nbsp;integer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;same&nbsp;precision&nbsp;as&nbsp;the&nbsp;platform&nbsp;integer&nbsp;is&nbsp;used.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;versionadded:&nbsp;0.18.0<br>
+&nbsp;<br>
+out&nbsp;:&nbsp;np.matrix,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Alternative&nbsp;output&nbsp;matrix&nbsp;in&nbsp;which&nbsp;to&nbsp;place&nbsp;the&nbsp;result.&nbsp;It&nbsp;must<br>
+&nbsp;&nbsp;&nbsp;&nbsp;have&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;the&nbsp;expected&nbsp;output,&nbsp;but&nbsp;the&nbsp;type&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;values&nbsp;will&nbsp;be&nbsp;cast&nbsp;if&nbsp;necessary.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;..&nbsp;versionadded:&nbsp;0.18.0<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+sum_along_axis&nbsp;:&nbsp;np.matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;matrix&nbsp;with&nbsp;the&nbsp;same&nbsp;shape&nbsp;as&nbsp;`self`,&nbsp;with&nbsp;the&nbsp;specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;axis&nbsp;removed.<br>
+&nbsp;<br>
+See&nbsp;Also<br>
+--------<br>
+np.matrix.sum&nbsp;:&nbsp;NumPy's&nbsp;implementation&nbsp;of&nbsp;'sum'&nbsp;for&nbsp;matrices</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-toarray"><strong>toarray</strong></a>(self, order<font color="#909090">=None</font>, out<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;a&nbsp;dense&nbsp;ndarray&nbsp;representation&nbsp;of&nbsp;this&nbsp;matrix.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+order&nbsp;:&nbsp;{'C',&nbsp;'F'},&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Whether&nbsp;to&nbsp;store&nbsp;multi-dimensional&nbsp;data&nbsp;in&nbsp;C&nbsp;(row-major)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;Fortran&nbsp;(column-major)&nbsp;order&nbsp;in&nbsp;memory.&nbsp;The&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;'None',&nbsp;indicating&nbsp;the&nbsp;NumPy&nbsp;default&nbsp;of&nbsp;C-ordered.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Cannot&nbsp;be&nbsp;specified&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;the&nbsp;`out`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;argument.<br>
+&nbsp;<br>
+out&nbsp;:&nbsp;ndarray,&nbsp;2-dimensional,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;specified,&nbsp;uses&nbsp;this&nbsp;array&nbsp;as&nbsp;the&nbsp;output&nbsp;buffer<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instead&nbsp;of&nbsp;allocating&nbsp;a&nbsp;new&nbsp;array&nbsp;to&nbsp;return.&nbsp;The&nbsp;provided<br>
+&nbsp;&nbsp;&nbsp;&nbsp;array&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;shape&nbsp;and&nbsp;dtype&nbsp;as&nbsp;the&nbsp;sparse<br>
+&nbsp;&nbsp;&nbsp;&nbsp;matrix&nbsp;on&nbsp;which&nbsp;you&nbsp;are&nbsp;calling&nbsp;the&nbsp;method.&nbsp;For&nbsp;most<br>
+&nbsp;&nbsp;&nbsp;&nbsp;sparse&nbsp;types,&nbsp;`out`&nbsp;is&nbsp;required&nbsp;to&nbsp;be&nbsp;memory&nbsp;contiguous<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(either&nbsp;C&nbsp;or&nbsp;Fortran&nbsp;ordered).<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+arr&nbsp;:&nbsp;ndarray,&nbsp;2-dimensional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;An&nbsp;array&nbsp;with&nbsp;the&nbsp;same&nbsp;shape&nbsp;and&nbsp;containing&nbsp;the&nbsp;same<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;represented&nbsp;by&nbsp;the&nbsp;sparse&nbsp;matrix,&nbsp;with&nbsp;the&nbsp;requested<br>
+&nbsp;&nbsp;&nbsp;&nbsp;memory&nbsp;order.&nbsp;If&nbsp;`out`&nbsp;was&nbsp;passed,&nbsp;the&nbsp;same&nbsp;object&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;returned&nbsp;after&nbsp;being&nbsp;modified&nbsp;in-place&nbsp;to&nbsp;contain&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;appropriate&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-tobsr"><strong>tobsr</strong></a>(self, blocksize<font color="#909090">=None</font>, copy<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;this&nbsp;matrix&nbsp;to&nbsp;Block&nbsp;Sparse&nbsp;Row&nbsp;format.<br>
+&nbsp;<br>
+With&nbsp;copy=False,&nbsp;the&nbsp;data/indices&nbsp;may&nbsp;be&nbsp;shared&nbsp;between&nbsp;this&nbsp;matrix&nbsp;and<br>
+the&nbsp;resultant&nbsp;bsr_matrix.<br>
+&nbsp;<br>
+When&nbsp;blocksize=(R,&nbsp;C)&nbsp;is&nbsp;provided,&nbsp;it&nbsp;will&nbsp;be&nbsp;used&nbsp;for&nbsp;construction&nbsp;of<br>
+the&nbsp;bsr_matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-tocsr"><strong>tocsr</strong></a>(self, copy<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;this&nbsp;matrix&nbsp;to&nbsp;Compressed&nbsp;Sparse&nbsp;Row&nbsp;format.<br>
+&nbsp;<br>
+With&nbsp;copy=False,&nbsp;the&nbsp;data/indices&nbsp;may&nbsp;be&nbsp;shared&nbsp;between&nbsp;this&nbsp;matrix&nbsp;and<br>
+the&nbsp;resultant&nbsp;csr_matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-todense"><strong>todense</strong></a>(self, order<font color="#909090">=None</font>, out<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;a&nbsp;dense&nbsp;matrix&nbsp;representation&nbsp;of&nbsp;this&nbsp;matrix.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+order&nbsp;:&nbsp;{'C',&nbsp;'F'},&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Whether&nbsp;to&nbsp;store&nbsp;multi-dimensional&nbsp;data&nbsp;in&nbsp;C&nbsp;(row-major)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;Fortran&nbsp;(column-major)&nbsp;order&nbsp;in&nbsp;memory.&nbsp;The&nbsp;default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;'None',&nbsp;indicating&nbsp;the&nbsp;NumPy&nbsp;default&nbsp;of&nbsp;C-ordered.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Cannot&nbsp;be&nbsp;specified&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;the&nbsp;`out`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;argument.<br>
+&nbsp;<br>
+out&nbsp;:&nbsp;ndarray,&nbsp;2-dimensional,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;specified,&nbsp;uses&nbsp;this&nbsp;array&nbsp;(or&nbsp;`numpy.matrix`)&nbsp;as&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;buffer&nbsp;instead&nbsp;of&nbsp;allocating&nbsp;a&nbsp;new&nbsp;array&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return.&nbsp;The&nbsp;provided&nbsp;array&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;shape&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dtype&nbsp;as&nbsp;the&nbsp;sparse&nbsp;matrix&nbsp;on&nbsp;which&nbsp;you&nbsp;are&nbsp;calling&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;method.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+arr&nbsp;:&nbsp;numpy.matrix,&nbsp;2-dimensional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;NumPy&nbsp;matrix&nbsp;object&nbsp;with&nbsp;the&nbsp;same&nbsp;shape&nbsp;and&nbsp;containing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;same&nbsp;data&nbsp;represented&nbsp;by&nbsp;the&nbsp;sparse&nbsp;matrix,&nbsp;with&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;requested&nbsp;memory&nbsp;order.&nbsp;If&nbsp;`out`&nbsp;was&nbsp;passed&nbsp;and&nbsp;was&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;&nbsp;array&nbsp;(rather&nbsp;than&nbsp;a&nbsp;`numpy.matrix`),&nbsp;it&nbsp;will&nbsp;be&nbsp;filled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;the&nbsp;appropriate&nbsp;values&nbsp;and&nbsp;returned&nbsp;wrapped&nbsp;in&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`numpy.matrix`&nbsp;object&nbsp;that&nbsp;shares&nbsp;the&nbsp;same&nbsp;memory.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-todia"><strong>todia</strong></a>(self, copy<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;this&nbsp;matrix&nbsp;to&nbsp;sparse&nbsp;DIAgonal&nbsp;format.<br>
+&nbsp;<br>
+With&nbsp;copy=False,&nbsp;the&nbsp;data/indices&nbsp;may&nbsp;be&nbsp;shared&nbsp;between&nbsp;this&nbsp;matrix&nbsp;and<br>
+the&nbsp;resultant&nbsp;dia_matrix.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-tolil"><strong>tolil</strong></a>(self, copy<font color="#909090">=False</font>)</dt><dd><tt>Convert&nbsp;this&nbsp;matrix&nbsp;to&nbsp;LInked&nbsp;List&nbsp;format.<br>
+&nbsp;<br>
+With&nbsp;copy=False,&nbsp;the&nbsp;data/indices&nbsp;may&nbsp;be&nbsp;shared&nbsp;between&nbsp;this&nbsp;matrix&nbsp;and<br>
+the&nbsp;resultant&nbsp;lil_matrix.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>:<br>
+<dl><dt><strong>nnz</strong></dt>
+<dd><tt>Number&nbsp;of&nbsp;stored&nbsp;values,&nbsp;including&nbsp;explicit&nbsp;zeros.<br>
+&nbsp;<br>
+See&nbsp;also<br>
+--------<br>
+count_nonzero&nbsp;:&nbsp;Number&nbsp;of&nbsp;non-zero&nbsp;entries</tt></dd>
+</dl>
+<dl><dt><strong>shape</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="scipy.sparse.base.html#spmatrix">scipy.sparse.base.spmatrix</a>:<br>
+<dl><dt><strong>__array_priority__</strong> = 10.1</dl>
+
+<dl><dt><strong>ndim</strong> = 2</dl>
+
+<hr>
+Methods inherited from <a href="__builtin__.html#dict">__builtin__.dict</a>:<br>
+<dl><dt><a name="dok_matrix-__cmp__"><strong>__cmp__</strong></a>(...)</dt><dd><tt>x.<a href="#dok_matrix-__cmp__">__cmp__</a>(y)&nbsp;&lt;==&gt;&nbsp;cmp(x,y)</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-__contains__"><strong>__contains__</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-__contains__">__contains__</a>(k)&nbsp;-&gt;&nbsp;True&nbsp;if&nbsp;D&nbsp;has&nbsp;a&nbsp;key&nbsp;k,&nbsp;else&nbsp;False</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-__delitem__"><strong>__delitem__</strong></a>(...)</dt><dd><tt>x.<a href="#dok_matrix-__delitem__">__delitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#dok_matrix-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-__sizeof__"><strong>__sizeof__</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-__sizeof__">__sizeof__</a>()&nbsp;-&gt;&nbsp;size&nbsp;of&nbsp;D&nbsp;in&nbsp;memory,&nbsp;in&nbsp;bytes</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-clear"><strong>clear</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-clear">clear</a>()&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Remove&nbsp;all&nbsp;items&nbsp;from&nbsp;D.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-fromkeys"><strong>fromkeys</strong></a>(...)</dt><dd><tt><a href="__builtin__.html#dict">dict</a>.<a href="#dok_matrix-fromkeys">fromkeys</a>(S[,v])&nbsp;-&gt;&nbsp;New&nbsp;<a href="__builtin__.html#dict">dict</a>&nbsp;with&nbsp;keys&nbsp;from&nbsp;S&nbsp;and&nbsp;values&nbsp;equal&nbsp;to&nbsp;v.<br>
+v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-has_key"><strong>has_key</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-has_key">has_key</a>(k)&nbsp;-&gt;&nbsp;True&nbsp;if&nbsp;D&nbsp;has&nbsp;a&nbsp;key&nbsp;k,&nbsp;else&nbsp;False</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-items"><strong>items</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-items">items</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;(key,&nbsp;value)&nbsp;pairs,&nbsp;as&nbsp;2-tuples</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-iteritems"><strong>iteritems</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-iteritems">iteritems</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;(key,&nbsp;value)&nbsp;items&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-iterkeys"><strong>iterkeys</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-iterkeys">iterkeys</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;keys&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-itervalues"><strong>itervalues</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-itervalues">itervalues</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;values&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-keys"><strong>keys</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-keys">keys</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;keys</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-pop"><strong>pop</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-pop">pop</a>(k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;remove&nbsp;specified&nbsp;key&nbsp;and&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;value.<br>
+If&nbsp;key&nbsp;is&nbsp;not&nbsp;found,&nbsp;d&nbsp;is&nbsp;returned&nbsp;if&nbsp;given,&nbsp;otherwise&nbsp;KeyError&nbsp;is&nbsp;raised</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-popitem"><strong>popitem</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-popitem">popitem</a>()&nbsp;-&gt;&nbsp;(k,&nbsp;v),&nbsp;remove&nbsp;and&nbsp;return&nbsp;some&nbsp;(key,&nbsp;value)&nbsp;pair&nbsp;as&nbsp;a<br>
+2-tuple;&nbsp;but&nbsp;raise&nbsp;KeyError&nbsp;if&nbsp;D&nbsp;is&nbsp;empty.</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-setdefault"><strong>setdefault</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-setdefault">setdefault</a>(k[,d])&nbsp;-&gt;&nbsp;D.<a href="#dok_matrix-get">get</a>(k,d),&nbsp;also&nbsp;set&nbsp;D[k]=d&nbsp;if&nbsp;k&nbsp;not&nbsp;in&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-update"><strong>update</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-update">update</a>([E,&nbsp;]**F)&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Update&nbsp;D&nbsp;from&nbsp;<a href="__builtin__.html#dict">dict</a>/iterable&nbsp;E&nbsp;and&nbsp;F.<br>
+If&nbsp;E&nbsp;present&nbsp;and&nbsp;has&nbsp;a&nbsp;.<a href="#dok_matrix-keys">keys</a>()&nbsp;method,&nbsp;does:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;k&nbsp;in&nbsp;E:&nbsp;D[k]&nbsp;=&nbsp;E[k]<br>
+If&nbsp;E&nbsp;present&nbsp;and&nbsp;lacks&nbsp;.<a href="#dok_matrix-keys">keys</a>()&nbsp;method,&nbsp;does:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(k,&nbsp;v)&nbsp;in&nbsp;E:&nbsp;D[k]&nbsp;=&nbsp;v<br>
+In&nbsp;either&nbsp;case,&nbsp;this&nbsp;is&nbsp;followed&nbsp;by:&nbsp;for&nbsp;k&nbsp;in&nbsp;F:&nbsp;D[k]&nbsp;=&nbsp;F[k]</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-values"><strong>values</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-values">values</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;values</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-viewitems"><strong>viewitems</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-viewitems">viewitems</a>()&nbsp;-&gt;&nbsp;a&nbsp;set-like&nbsp;object&nbsp;providing&nbsp;a&nbsp;view&nbsp;on&nbsp;D's&nbsp;items</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-viewkeys"><strong>viewkeys</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-viewkeys">viewkeys</a>()&nbsp;-&gt;&nbsp;a&nbsp;set-like&nbsp;object&nbsp;providing&nbsp;a&nbsp;view&nbsp;on&nbsp;D's&nbsp;keys</tt></dd></dl>
+
+<dl><dt><a name="dok_matrix-viewvalues"><strong>viewvalues</strong></a>(...)</dt><dd><tt>D.<a href="#dok_matrix-viewvalues">viewvalues</a>()&nbsp;-&gt;&nbsp;an&nbsp;object&nbsp;providing&nbsp;a&nbsp;view&nbsp;on&nbsp;D's&nbsp;values</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="__builtin__.html#dict">__builtin__.dict</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#dok_matrix-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-isspmatrix_dok"><strong>isspmatrix_dok</strong></a>(x)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ['dok_matrix', 'isspmatrix_dok']<br>
+<strong>__docformat__</strong> = 'restructuredtext en'</td></tr></table>
+</body></html>

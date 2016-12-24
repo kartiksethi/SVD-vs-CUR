@@ -1,0 +1,99 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module svdcurcomparison</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>svdcurcomparison</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/vinaydatta/IRassgn2/Documentation/svdcurcomparison.py">/home/vinaydatta/IRassgn2/Documentation/svdcurcomparison.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.linalg.html">numpy.linalg</a><br>
+<a href="scipy.sparse.base.html">scipy.sparse.base</a><br>
+<a href="scipy.sparse.bsr.html">scipy.sparse.bsr</a><br>
+<a href="scipy.sparse.compressed.html">scipy.sparse.compressed</a><br>
+<a href="scipy.sparse.construct.html">scipy.sparse.construct</a><br>
+<a href="scipy.sparse.coo.html">scipy.sparse.coo</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.csc.html">scipy.sparse.csc</a><br>
+<a href="scipy.sparse.csgraph.html">scipy.sparse.csgraph</a><br>
+<a href="scipy.sparse.csr.html">scipy.sparse.csr</a><br>
+<a href="scipy.sparse.data.html">scipy.sparse.data</a><br>
+<a href="scipy.sparse.dia.html">scipy.sparse.dia</a><br>
+<a href="scipy.sparse.dok.html">scipy.sparse.dok</a><br>
+</td><td width="25%" valign=top><a href="scipy.sparse.extract.html">scipy.sparse.extract</a><br>
+<a href="scipy.sparse.lil.html">scipy.sparse.lil</a><br>
+<a href="scipy.linalg.html">scipy.linalg</a><br>
+<a href="numpy.html">numpy</a><br>
+<a href="pandas.html">pandas</a><br>
+<a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top><a href="random.html">random</a><br>
+<a href="scipy.html">scipy</a><br>
+<a href="scipy.sparse.html">scipy.sparse</a><br>
+<a href="scipy.sparse.sputils.html">scipy.sparse.sputils</a><br>
+<a href="timeit.html">timeit</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-CUR"><strong>CUR</strong></a>(mat, numr, numc, nrows, ncols)</dt></dl>
+ <dl><dt><a name="-SVD"><strong>SVD</strong></a>(A, dim)</dt></dl>
+ <dl><dt><a name="-power_iteration"><strong>power_iteration</strong></a>(sq_matrix, k)</dt><dd><tt>#&nbsp;Power&nbsp;Iteration&nbsp;<br>
+#&nbsp;vects&nbsp;will&nbsp;be&nbsp;a&nbsp;list&nbsp;of&nbsp;eigen&nbsp;vectors&nbsp;(it&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;V.T)<br>
+#&nbsp;eigvals&nbsp;will&nbsp;be&nbsp;list&nbsp;of&nbsp;eigen&nbsp;values<br>
+#&nbsp;number&nbsp;of&nbsp;eigen&nbsp;values&nbsp;to&nbsp;be&nbsp;retrieved&nbsp;using&nbsp;power&nbsp;iteration</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>A</strong> = array([[ 0.,  0.,  0., ...,  0.,  0.,  0.],
+    ...0.],
+       [ 0.,  0.,  0., ...,  0.,  0.,  0.]])<br>
+<strong>H</strong> = array([[  4.03995964e-14,   6.24567826e-15,   2....594159e-13,   4.13000000e+00,  -7.67450246e-14]])<br>
+<strong>U</strong> = array([[-0.00315659, -0.00165228,  0.0058873 , ....  0.01502006,
+         0.00747505,  0.00080771]])<br>
+<strong>V</strong> = array([[ -6.04849790e-03,  -3.70250540e-03,  -6....551139e-02,   4.04455570e-03,  -6.65289653e-04]])<br>
+<strong>absolute_import</strong> = _Feature((2, 5, 0, 'alpha', 1), (3, 0, 0, 'alpha', 0), 16384)<br>
+<strong>c</strong> = &lt;2400x35 sparse matrix of type '&lt;type 'numpy.flo...ored elements in Compressed Sparse Column format&gt;<br>
+<strong>curerror</strong> = [830.39704262202179, 867.06274413097378, 907.01199823656009, 942.20076374158464, 976.36927724095494, 1012.4478167038623, 1046.6921881595665, 1080.074110040701, 1112.3732203647744, 1147.1740740487182, 1177.3256394109856, 1203.6313980528892, 1229.9755879044562, 1259.0034841344179, 1286.2902873687149]<br>
+<strong>cursize</strong> = [428152, 442904, 519888, 470952, 572864, 586248, 543040, 611864, 629496, 543360, 661608, 743248, 688736, 723552, 696704]<br>
+<strong>curtime</strong> = [0.36954689025878906, 0.3255147933959961, 0.35945606231689453, 0.3616030216217041, 0.3930659294128418, 0.5094699859619141, 0.4036219120025635, 0.4963688850402832, 0.437694787979126, 0.5086989402770996, 0.5552690029144287, 0.5242669582366943, 0.4916958808898926, 0.6170439720153809, 0.5522470474243164]<br>
+<strong>df</strong> =        0     1     2     3     4     5     6    ...0  0.00  0.00  0.00  
+
+[24938 rows x 101 columns]<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>i</strong> = 2400<br>
+<strong>ncols</strong> = 100<br>
+<strong>nrows</strong> = 5000<br>
+<strong>numc</strong> = 75<br>
+<strong>numr</strong> = 1000<br>
+<strong>print_function</strong> = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 65536)<br>
+<strong>r</strong> = &lt;788x100 sparse matrix of type '&lt;type 'numpy.flo... stored elements in Compressed Sparse Row format&gt;<br>
+<strong>reconstructionError</strong> = 9.6670943212948545e-11<br>
+<strong>reconstructionerror</strong> = 1286.2902873687149<br>
+<strong>samplesize</strong> = [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400]<br>
+<strong>sigma</strong> = array([[ 547.26023758,    0.        ,    0.     ...        ,
+           0.        ,    1.11341033]])<br>
+<strong>start</strong> = 1479718731.171836<br>
+<strong>stop</strong> = 1479718731.724083<br>
+<strong>svderror</strong> = [2.2048296532768776, 6.4847209499664264e-11, 6.8327459583882145e-11, 8.202090252186796e-11, 5.4243562878950557e-11, 2.2151626139184408, 2.2177688105085407, 2.2199624483207194, 2.2223315926270977, 2.2238043238477001, 2.2245339025497626, 2.2252985487498811, 2.2258538352198198, 1.9644637991719972e-10, 9.6670943212948545e-11]<br>
+<strong>svdsize</strong> = [863184, 941584, 1019984, 1098384, 1176776, 1255184, 1333584, 1411968, 1490384, 1568784, 1647184, 1725584, 1803984, 1882384, 1960776]<br>
+<strong>svdtime</strong> = [1.0084638595581055, 1.1326818466186523, 1.2566311359405518, 1.4322831630706787, 1.567026138305664, 1.7878448963165283, 1.9474661350250244, 2.094454050064087, 2.2784509658813477, 2.599740982055664, 2.8298861980438232, 3.3051459789276123, 3.6096861362457275, 3.893388032913208, 3.7407639026641846]<br>
+<strong>temp</strong> = array([[ 0.  ,  0.  ,  0.  , ...,  0.  ,  0.  , ...[ 0.  ,  0.  ,  0.  , ...,  0.  ,  4.13,  0.  ]])<br>
+<strong>u</strong> = array([[ -4.83022210e-07,   8.59320874e-07,   1....397247e-07,  -1.24018730e-05,  -3.34817596e-06]])</td></tr></table>
+</body></html>

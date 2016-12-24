@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module scipy.sparse.extract</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="scipy.html"><font color="#ffffff">scipy</font></a>.<a href="scipy.sparse.html"><font color="#ffffff">sparse</font></a>.extract</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/usr/local/lib/python2.7/dist-packages/scipy/sparse/extract.py">/usr/local/lib/python2.7/dist-packages/scipy/sparse/extract.py</a></font></td></tr></table>
+    <p><tt>Functions&nbsp;to&nbsp;extract&nbsp;parts&nbsp;of&nbsp;sparse&nbsp;matrices</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-find"><strong>find</strong></a>(A)</dt><dd><tt>Return&nbsp;the&nbsp;indices&nbsp;and&nbsp;values&nbsp;of&nbsp;the&nbsp;nonzero&nbsp;elements&nbsp;of&nbsp;a&nbsp;matrix<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+A&nbsp;:&nbsp;dense&nbsp;or&nbsp;sparse&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Matrix&nbsp;whose&nbsp;nonzero&nbsp;elements&nbsp;are&nbsp;desired.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+(I,J,V)&nbsp;:&nbsp;tuple&nbsp;of&nbsp;arrays<br>
+&nbsp;&nbsp;&nbsp;&nbsp;I,J,&nbsp;and&nbsp;V&nbsp;contain&nbsp;the&nbsp;row&nbsp;indices,&nbsp;column&nbsp;indices,&nbsp;and&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;the&nbsp;nonzero&nbsp;matrix&nbsp;entries.<br>
+&nbsp;<br>
+&nbsp;<br>
+Examples<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;scipy.sparse&nbsp;import&nbsp;csr_matrix,&nbsp;find<br>
+&gt;&gt;&gt;&nbsp;A&nbsp;=&nbsp;csr_matrix([[7.0,&nbsp;8.0,&nbsp;0],[0,&nbsp;0,&nbsp;9.0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-find">find</a>(A)<br>
+(array([0,&nbsp;0,&nbsp;1],&nbsp;dtype=int32),&nbsp;array([0,&nbsp;1,&nbsp;2],&nbsp;dtype=int32),&nbsp;array([&nbsp;7.,&nbsp;&nbsp;8.,&nbsp;&nbsp;9.]))</tt></dd></dl>
+ <dl><dt><a name="-tril"><strong>tril</strong></a>(A, k<font color="#909090">=0</font>, format<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;lower&nbsp;triangular&nbsp;portion&nbsp;of&nbsp;a&nbsp;matrix&nbsp;in&nbsp;sparse&nbsp;format<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;elements&nbsp;on&nbsp;or&nbsp;below&nbsp;the&nbsp;k-th&nbsp;diagonal&nbsp;of&nbsp;the&nbsp;matrix&nbsp;A.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;k&nbsp;=&nbsp;0&nbsp;corresponds&nbsp;to&nbsp;the&nbsp;main&nbsp;diagonal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;k&nbsp;&gt;&nbsp;0&nbsp;is&nbsp;above&nbsp;the&nbsp;main&nbsp;diagonal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;k&nbsp;&lt;&nbsp;0&nbsp;is&nbsp;below&nbsp;the&nbsp;main&nbsp;diagonal<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+A&nbsp;:&nbsp;dense&nbsp;or&nbsp;sparse&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Matrix&nbsp;whose&nbsp;lower&nbsp;trianglar&nbsp;portion&nbsp;is&nbsp;desired.<br>
+k&nbsp;:&nbsp;integer&nbsp;:&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;top-most&nbsp;diagonal&nbsp;of&nbsp;the&nbsp;lower&nbsp;triangle.<br>
+format&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sparse&nbsp;format&nbsp;of&nbsp;the&nbsp;result,&nbsp;e.g.&nbsp;format="csr",&nbsp;etc.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+L&nbsp;:&nbsp;sparse&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lower&nbsp;triangular&nbsp;portion&nbsp;of&nbsp;A&nbsp;in&nbsp;sparse&nbsp;format.<br>
+&nbsp;<br>
+See&nbsp;Also<br>
+--------<br>
+triu&nbsp;:&nbsp;upper&nbsp;triangle&nbsp;in&nbsp;sparse&nbsp;format<br>
+&nbsp;<br>
+Examples<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;scipy.sparse&nbsp;import&nbsp;csr_matrix,&nbsp;tril<br>
+&gt;&gt;&gt;&nbsp;A&nbsp;=&nbsp;csr_matrix([[1,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;3],&nbsp;[4,&nbsp;5,&nbsp;0,&nbsp;6,&nbsp;7],&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;9,&nbsp;0]],<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dtype='int32')<br>
+&gt;&gt;&gt;&nbsp;A.toarray()<br>
+array([[1,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;3],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;5,&nbsp;0,&nbsp;6,&nbsp;7],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;9,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-tril">tril</a>(A).toarray()<br>
+array([[1,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;5,&nbsp;0,&nbsp;0,&nbsp;0],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;0,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-tril">tril</a>(A).nnz<br>
+4<br>
+&gt;&gt;&gt;&nbsp;<a href="#-tril">tril</a>(A,&nbsp;k=1).toarray()<br>
+array([[1,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;0],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;5,&nbsp;0,&nbsp;0,&nbsp;0],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;9,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-tril">tril</a>(A,&nbsp;k=-1).toarray()<br>
+array([[0,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;0,&nbsp;0,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-tril">tril</a>(A,&nbsp;format='csc')<br>
+&lt;3x5&nbsp;sparse&nbsp;matrix&nbsp;of&nbsp;type&nbsp;'&lt;type&nbsp;'numpy.int32'&gt;'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;4&nbsp;stored&nbsp;elements&nbsp;in&nbsp;Compressed&nbsp;Sparse&nbsp;Column&nbsp;format&gt;</tt></dd></dl>
+ <dl><dt><a name="-triu"><strong>triu</strong></a>(A, k<font color="#909090">=0</font>, format<font color="#909090">=None</font>)</dt><dd><tt>Return&nbsp;the&nbsp;upper&nbsp;triangular&nbsp;portion&nbsp;of&nbsp;a&nbsp;matrix&nbsp;in&nbsp;sparse&nbsp;format<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;elements&nbsp;on&nbsp;or&nbsp;above&nbsp;the&nbsp;k-th&nbsp;diagonal&nbsp;of&nbsp;the&nbsp;matrix&nbsp;A.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;k&nbsp;=&nbsp;0&nbsp;corresponds&nbsp;to&nbsp;the&nbsp;main&nbsp;diagonal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;k&nbsp;&gt;&nbsp;0&nbsp;is&nbsp;above&nbsp;the&nbsp;main&nbsp;diagonal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;k&nbsp;&lt;&nbsp;0&nbsp;is&nbsp;below&nbsp;the&nbsp;main&nbsp;diagonal<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+A&nbsp;:&nbsp;dense&nbsp;or&nbsp;sparse&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Matrix&nbsp;whose&nbsp;upper&nbsp;trianglar&nbsp;portion&nbsp;is&nbsp;desired.<br>
+k&nbsp;:&nbsp;integer&nbsp;:&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;bottom-most&nbsp;diagonal&nbsp;of&nbsp;the&nbsp;upper&nbsp;triangle.<br>
+format&nbsp;:&nbsp;string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Sparse&nbsp;format&nbsp;of&nbsp;the&nbsp;result,&nbsp;e.g.&nbsp;format="csr",&nbsp;etc.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+L&nbsp;:&nbsp;sparse&nbsp;matrix<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Upper&nbsp;triangular&nbsp;portion&nbsp;of&nbsp;A&nbsp;in&nbsp;sparse&nbsp;format.<br>
+&nbsp;<br>
+See&nbsp;Also<br>
+--------<br>
+tril&nbsp;:&nbsp;lower&nbsp;triangle&nbsp;in&nbsp;sparse&nbsp;format<br>
+&nbsp;<br>
+Examples<br>
+--------<br>
+&gt;&gt;&gt;&nbsp;from&nbsp;scipy.sparse&nbsp;import&nbsp;csr_matrix,&nbsp;triu<br>
+&gt;&gt;&gt;&nbsp;A&nbsp;=&nbsp;csr_matrix([[1,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;3],&nbsp;[4,&nbsp;5,&nbsp;0,&nbsp;6,&nbsp;7],&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;9,&nbsp;0]],<br>
+...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dtype='int32')<br>
+&gt;&gt;&gt;&nbsp;A.toarray()<br>
+array([[1,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;3],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;5,&nbsp;0,&nbsp;6,&nbsp;7],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;9,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-triu">triu</a>(A).toarray()<br>
+array([[1,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;3],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;5,&nbsp;0,&nbsp;6,&nbsp;7],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;9,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-triu">triu</a>(A).nnz<br>
+8<br>
+&gt;&gt;&gt;&nbsp;<a href="#-triu">triu</a>(A,&nbsp;k=1).toarray()<br>
+array([[0,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;3],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;0,&nbsp;6,&nbsp;7],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;0,&nbsp;9,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-triu">triu</a>(A,&nbsp;k=-1).toarray()<br>
+array([[1,&nbsp;2,&nbsp;0,&nbsp;0,&nbsp;3],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[4,&nbsp;5,&nbsp;0,&nbsp;6,&nbsp;7],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,&nbsp;0,&nbsp;8,&nbsp;9,&nbsp;0]])<br>
+&gt;&gt;&gt;&nbsp;<a href="#-triu">triu</a>(A,&nbsp;format='csc')<br>
+&lt;3x5&nbsp;sparse&nbsp;matrix&nbsp;of&nbsp;type&nbsp;'&lt;type&nbsp;'numpy.int32'&gt;'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;8&nbsp;stored&nbsp;elements&nbsp;in&nbsp;Compressed&nbsp;Sparse&nbsp;Column&nbsp;format&gt;</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ['find', 'tril', 'triu']<br>
+<strong>__docformat__</strong> = 'restructuredtext en'</td></tr></table>
+</body></html>

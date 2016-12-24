@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module svd_eigs</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>svd_eigs</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="./svd_eigs.py">/home/vinaydatta/IRassgn2/Documentation/svd_eigs.py</a></font></td></tr></table>
+    <p><tt>Library&nbsp;Imports</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.linalg.html">numpy.linalg</a><br>
+<a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="scipy.html">scipy</a><br>
+<a href="scipy.sparse.html">scipy.sparse</a><br>
+</td><td width="25%" valign=top><a href="timeit.html">timeit</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-SVD"><strong>SVD</strong></a>(A, dim)</dt><dd><tt>Function&nbsp;which&nbsp;returns&nbsp;the&nbsp;U,&nbsp;V&nbsp;and&nbsp;sigma&nbsp;matrices&nbsp;for&nbsp;a&nbsp;given&nbsp;matrix<br>
+Input:<br>
+-A:&nbsp;the&nbsp;input&nbsp;square&nbsp;matrix&nbsp;for&nbsp;which&nbsp;the&nbsp;decomposition&nbsp;is&nbsp;to&nbsp;be&nbsp;done<br>
+-dim:&nbsp;the&nbsp;dimension&nbsp;of&nbsp;the&nbsp;reduced&nbsp;matrix<br>
+Return:<br>
+Returns&nbsp;the&nbsp;following<br>
+-U:&nbsp;the&nbsp;first&nbsp;singular&nbsp;matrix<br>
+-Eig_mat:&nbsp;the&nbsp;concept&nbsp;strength&nbsp;matrix<br>
+-V:&nbsp;the&nbsp;second&nbsp;singular&nbsp;matrix</tt></dd></dl>
+ <dl><dt><a name="-power_iteration"><strong>power_iteration</strong></a>(sq_matrix, k)</dt><dd><tt>Function&nbsp;which&nbsp;returns&nbsp;the&nbsp;eigen&nbsp;values&nbsp;and&nbsp;the&nbsp;corresponding&nbsp;eigen&nbsp;vectors&nbsp;for&nbsp;a&nbsp;sqaure&nbsp;matrix<br>
+&nbsp;<br>
+Input:<br>
+-sq_matrix:&nbsp;the&nbsp;input&nbsp;square&nbsp;matrix&nbsp;for&nbsp;which&nbsp;the&nbsp;eigen&nbsp;vectors&nbsp;are&nbsp;calculated<br>
+-k&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;the&nbsp;number&nbsp;of&nbsp;eigen&nbsp;vectors&nbsp;to&nbsp;be&nbsp;returned<br>
+Return:<br>
+Returns&nbsp;the&nbsp;following&nbsp;<br>
+-eigvals:&nbsp;the&nbsp;eigen&nbsp;values&nbsp;in&nbsp;descending&nbsp;order<br>
+-vects:&nbsp;the&nbsp;eigen&nbsp;vectors</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>A</strong> = array([[-7.82,  8.79, -9.66, ...,  0.  ,  0.  , ...[-1.31,  6.46,  3.01, ...,  1.55, -0.97,  2.91]])<br>
+<strong>H</strong> = array([[  4.33254286,  -0.60016869,  13.43190919...3.37551175,
+         -0.83227425,  -3.19992718]])<br>
+<strong>U</strong> = array([[-0.00530453, -0.03822119, -0.00704752, ....  0.00354023,
+        -0.00779304,  0.00732075]])<br>
+<strong>V</strong> = array([[-0.07719282, -0.07004806,  0.01499292, ....  0.0428443 ,
+         0.0575855 , -0.00840695]])<br>
+<strong>df</strong> =        0      1      2      3      4     5      ...99.00  99.00  99.00  
+
+[24983 rows x 101 columns]<br>
+<strong>inp</strong> = 25<br>
+<strong>mask</strong> = 7500<br>
+<strong>num_eigs_vector</strong> = 25<br>
+<strong>reconstructionError</strong> = 5804.2256849226678<br>
+<strong>sigma</strong> = array([[ 1928.56057213,     0.        ,     0.  ...      ,     0.        ,
+          336.50841229]])<br>
+<strong>start</strong> = 1479657528.017338<br>
+<strong>stop</strong> = 1479657558.739839</td></tr></table>
+</body></html>
