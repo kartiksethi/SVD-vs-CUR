@@ -1,14 +1,18 @@
 # SVD-vs-CUR
 
-To execute the files
+This project highlights a detailed comparison between the two matrix factorization methods namely SVD (Singular Value Decomposition) and CUR Matrix Approximation, developed in partial fulfilment for the Information Retrieval Course offered at my University.
 
-For Singular Value Decomposition
-python svd.py
+### Instructions:
 
-For CUR
-python cur.py
+### Executing the files
 
-Comaprision and related graphs between cur and svd
-python svdcurcomparison.py
+#### For Singular Value Decomposition
+* Execute the python file 'svd.py'.
+* The data set used is [jester-data-3] (http://eigentaste.berkeley.edu/dataset/).
 
-The input file is jester-data-3.xls
+#### For CUR Matrix Approximation
+* Execute the python file 'cur.py'.
+* The data set used is [jester-data-3] (http://eigentaste.berkeley.edu/dataset/).
+
+#### For Experimental Comparison and Related graphs between CUR and SVD
+* Execute the python file 'svdcurcomparison.py'.
